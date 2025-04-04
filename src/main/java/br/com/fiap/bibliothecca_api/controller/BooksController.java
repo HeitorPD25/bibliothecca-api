@@ -20,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import br.com.fiap.bibliothecca_api.model.Book;
 import br.com.fiap.bibliothecca_api.repository.BookRepository;
-import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/books")
@@ -30,7 +29,6 @@ public class BooksController {
     private BookRepository repository;
 
     @GetMapping // Get all books
-    //@Operation(summary = "Listar todos os Livros", description = "Retorna uma lista com todos os livros encontrados.")
     @Cacheable("books")
     public List<Book> index(){
         return repository.findAll();
@@ -38,7 +36,6 @@ public class BooksController {
 
     @PostMapping // Create a new book
     @CacheEvict(value = "books", allEntries = true)
-    //@Operation(responses = )
     @ResponseStatus(code = HttpStatus.CREATED)
     public Book create(@RequestBody Book book){
         System.out.println("Cadastrando livro" + book.getName());
