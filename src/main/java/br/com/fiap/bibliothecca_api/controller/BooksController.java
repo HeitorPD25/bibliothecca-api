@@ -85,7 +85,7 @@ public class BooksController {
         return ResponseEntity.ok(book);
     }
 
-    private Book getBook(Long id){
+    private Book getBook(Long id){ 
         return repository.findById(id)
                 .orElseThrow(
                     () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não encontrado")
