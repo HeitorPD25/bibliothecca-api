@@ -1,6 +1,6 @@
 package br.com.fiap.bibliothecca_api.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import br.com.fiap.bibliothecca_api.model.Enums.Categories;
 import jakarta.persistence.Entity;
@@ -12,10 +12,16 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Book {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +42,6 @@ public class Book {
 
     @NotNull
     @PastOrPresent
-    private Date release_date;
+    private LocalDate release_date;
     
 }

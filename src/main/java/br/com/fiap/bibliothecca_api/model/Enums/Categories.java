@@ -32,5 +32,6 @@ public enum Categories {
     ReligiãoEEspiritualidade,
     HumanidadesECiênciasSociais,
     PaternidadeEfamília,
-    TecnologiaECiência
+    TecnologiaECiência,
+    Drama
 }
